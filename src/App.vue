@@ -1,12 +1,18 @@
 <template>
   <div class="app h-100">
-    <LoadingPage text="جاري التحميل..." v-if="isLoading"/>
+    <LoadingPage text="جاري التحميل..." class="color-main" v-if="isLoading"/>
+    <transition-group name="page">
+      <LoginView v-if="(! isLoading) && (! authStore.isLoggedIn)"/>
+      <DashboardView v-if="(! isLoading) && (authStore.isLoggedIn)"/>
+    </transition-group>
   </div>
 </template>
 
 <script>
-import LoadingPageVue from './pages/LoadingPage.vue';
+import LoadingPage from './pages/LoadingPage.vue';
 import { useAuthStore } from './stores/auth';
+import LoginView from './views/LoginView.vue';
+import DashboardView from './views/DashboardView.vue';
 
 export default {
   name: "App",
@@ -32,7 +38,7 @@ export default {
   }, //end of mounted hook
 
   components: {
-    LoadingPage: LoadingPageVue
+    LoadingPage, LoginView, DashboardView
   }, // end of components
 }
 </script>

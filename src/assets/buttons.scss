@@ -1,0 +1,14 @@
+.floating-btn {
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 62px;
+    height: 62px;
+    position: fixed;
+    cursor: pointer;
+
+    &.floating-btn-left {left: 0}
+    &.floating-btn-bottom {bottom: 0}
+}
