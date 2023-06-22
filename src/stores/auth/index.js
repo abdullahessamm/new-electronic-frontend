@@ -78,14 +78,16 @@ export const useAuthStore = defineStore('auth', {
 
             const response = await axios.patch('profile/settings', data)
 
-            localStorage.removeItem('token')
-            // clear state
-            this.user.id = null
-            this.user.f_name = null
-            this.user.l_name = null
-            this.user.username = null
-            this.user.email = null
-            this.user.abilities = []
+            if (data.password) {
+                localStorage.removeItem('token')
+                // clear state
+                this.user.id = null
+                this.user.f_name = null
+                this.user.l_name = null
+                this.user.username = null
+                this.user.email = null
+                this.user.abilities = []
+            }
         }
     }, // end of actions
 })
