@@ -22,7 +22,8 @@
     "sass": "^1.62.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.0",
-    "vue-sweetalert2": "^5.0.5"
+    "vue-sweetalert2": "^5.0.5",
+    "write-excel-file": "^1.4.27"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

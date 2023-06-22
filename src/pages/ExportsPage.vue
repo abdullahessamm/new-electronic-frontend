@@ -13,10 +13,21 @@
                 </div>
 
                 <div class="row mt-5" v-if="authStore.can(availableAbilities.exports.fullIndex)">
-                    <div class="col-12 col-md-6 col-lg-3">
+                    <div class="col-12 col-md-6 col-lg-3 px-lg-5 mt-2">
                         <div style="direction: ltr !important">
                             <VueDatePicker placeholder="أختر التاريخ" v-model="dateRange" :enable-time-picker="false" range></VueDatePicker>
                         </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-9 px-lg-5 text-left mt-2">
+                        <button class="btn btn-excel color-main" @click="downloadReport">
+                            <span class="ico">
+                                <font-awesome-icon icon="fa-solid fa-file-excel" />
+                            </span>
+                            <span style="margin-right: 7px;">
+                                إستخراج الى ملف اكسل
+                            </span>
+                        </button>
                     </div>
                 </div>
 
@@ -98,7 +109,8 @@
                                         <input type="text" class="form-control" :value="`${Export.user.f_name} ${Export.user.l_name}`" disabled="true">
                                     </td>
                                     <td class="px-3" v-if="! Export.editMode && authStore.isAdmin">
-                                        <b>{{ authStore.user.id === Export.user.id ? 'أنت' : `${Export.user.f_name} ${Export.user.l_name}` }}</b>
+                                        <b v-if="Export.user">{{ authStore.user.id === Export.user.id ? 'أنت' : `${Export.user.f_name} ${Export.user.l_name}` }}</b>
+                                        <b v-else> غير معروف </b>
                                     </td>
 
                                     <td class="px-3" v-if="Export.editMode">
@@ -208,6 +220,7 @@ import availableAbilities from '../extras/availableAbilities'
 import { useAuthStore } from '../stores/auth'
 import { useExportsStore } from '../stores/exports'
 import LoadingPage from './LoadingPage.vue'
+import { dataTable } from '../utils/excelMaker'
 
 export default {
     name: "ExportsPage",
@@ -316,6 +329,40 @@ export default {
                 })
             })
         }, //end of updateExport
+
+        downloadReport() {
+            dataTable(`مصروفات نيو الكترونيك`, this.exportsStore.filterByDate(this.dateRange[0], this.dateRange[1]), [
+                {
+                    column: 'التاريخ والوقت',
+                    type: String,
+                    value: ele => new Date(ele.created_at).toLocaleString(),
+                    width: 30,
+                    align: 'center'
+                },
+                {
+                    column: 'التفاصيل',
+                    type: String,
+                    value: ele => ele.reason,
+                    width: 30,
+                    align: 'center'
+                },
+                {
+                    column: 'المبلغ',
+                    type: String,
+                    value: ele => ele.amount + 'ج',
+                    width: 30,
+                    align: 'center'
+                },
+                {
+                    column: 'ملاحظات',
+                    type: String,
+                    value: ele => ele.comment,
+                    width: 30,
+                    align: 'center'
+                },
+            ])
+        },// end of downloadReport
+
     }, // end of methods
 
     mounted() {

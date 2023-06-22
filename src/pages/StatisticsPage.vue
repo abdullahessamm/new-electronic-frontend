@@ -12,6 +12,19 @@
                     </div>
                 </div>
 
+                <div class="row mt-5">
+                    <div class="col-12 text-right">
+                        <button class="btn btn-excel color-main" @click="downloadReport">
+                            <span class="ico">
+                                <font-awesome-icon icon="fa-solid fa-file-excel" />
+                            </span>
+                            <span style="margin-right: 7px;">
+                                إستخراج الى ملف اكسل
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
                 <div class="row mt-5 bg-color-main text-white">
                     <div class="col-3 head"> الشهر </div>
                     <div class="col-3 head"> مجموع الإيرادات </div>
@@ -44,6 +57,7 @@ import { useAuthStore } from '../stores/auth'
 import { useImportsStore } from '../stores/imports'
 import { useExportsStore } from '../stores/exports'
 import LoadingPage from '../pages/LoadingPage.vue'
+import { dataTable } from '../utils/excelMaker'
 
 export default {
     name: "StatisticsPage",
@@ -59,8 +73,52 @@ export default {
     computed: {
         months() {
             return Object.keys(this.monthsHistory)
+        },
+
+        getArrayData() {
+            return Object.keys(this.monthsHistory).map(key => ({
+                month: key,
+                imports: this.monthsHistory[key].imports,
+                exports: this.monthsHistory[key].exports,
+                total: this.monthsHistory[key].imports - this.monthsHistory[key].exports,
+            }))
         }
     }, // end of computed
+
+    methods: {
+        downloadReport() {
+            dataTable('أحصائيات نيو الكترونيك', this.getArrayData, [
+                {
+                    column: 'الشهر',
+                    type: String,
+                    value: ele => ele.month,
+                    width: 20,
+                    align: 'center'
+                },
+                {
+                    column: 'مجموع الإيرادات',
+                    type: String,
+                    value: ele => ele.imports + 'ج',
+                    width: 20,
+                    align: 'center'
+                },
+                {
+                    column: 'مجموع المصروفات',
+                    type: String,
+                    value: ele => ele.exports + 'ج',
+                    width: 20,
+                    align: 'center'
+                },
+                {
+                    column: 'الإجمالى',
+                    type: String,
+                    value: ele => ele.total + 'ج',
+                    width: 20,
+                    align: 'center'
+                },
+            ])
+        },
+    }, // end of methods
 
     mounted() {
         // redirect if not permitted

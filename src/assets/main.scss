@@ -23,3 +23,15 @@ body {
 .text-right { text-align: right }
 .text-left { text-align: left }
 .cursor-hand{ cursor: pointer; }
+.btn-excel {
+    background-color: transparent;
+    border: 1px solid #21a366;
+    padding: 10px;
+    color: #21a366;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #21a366;
+        color: #fff;
+    }
+}
