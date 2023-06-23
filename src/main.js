@@ -15,7 +15,7 @@ import '../node_modules/bootstrap/dist/js/bootstrap'
 // import fontawesome
 import { library as lib } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faChartLine, faCircleInfo, faFile, faFileExcel, faFloppyDisk, faGear, faHandHoldingDollar, faHeart, faLock, faPenToSquare, faPlus, faPowerOff, faRightToBracket, faSackDollar, faTrash, faUserGear, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faCircleInfo, faFileExcel, faFloppyDisk, faGear, faHandHoldingDollar, faHeart, faLock, faPenToSquare, faPlus, faPowerOff, faRightToBracket, faSackDollar, faToolbox, faTrash, faUserGear, faUserPlus, faUsers } from '@fortawesome/free-solid-svg-icons'
 
 lib.add(faRightToBracket)
 lib.add(faHeart)
@@ -34,6 +34,7 @@ lib.add(faUserPlus)
 lib.add(faTrash)
 lib.add(faPenToSquare)
 lib.add(faFileExcel)
+lib.add(faToolbox)
 
 // import sweetalert lib
 import VueSweetalert2 from 'vue-sweetalert2';

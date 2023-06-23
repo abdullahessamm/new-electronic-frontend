@@ -31,6 +31,12 @@ export default [
             },
         ],
     }, // end of users
+    // Spare parts permits
+    {
+        path: '/sparePartsPermits',
+        name: 'sparePartsPermits',
+        component: () => import('../pages/SparePartsPermitsPage.vue')
+    }, // end of Spare parts permits
     // imports
     {
         path: '/imports',

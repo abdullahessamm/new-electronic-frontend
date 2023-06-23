@@ -14,6 +14,13 @@
             </router-link>
         </div>
 
+        <div class="link-container" v-if="authStore.can(abilities.sparePartsPermits.index) || authStore.can(abilities.sparePartsPermits.fullIndex)">
+            <router-link @click="toggleMobileSidebar" to="/sparePartsPermits" class="link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
+                <font-awesome-icon icon="fa-solid fa-toolbox" />
+                <span class="px-2">أذون قطع غيار</span>
+            </router-link>
+        </div>
+
         <div class="link-container" v-if="authStore.can(abilities.imports.index) || authStore.can(abilities.imports.fullIndex)">
             <router-link @click="toggleMobileSidebar" to="/imports" class="link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
                 <font-awesome-icon icon="fa-solid fa-sack-dollar" />

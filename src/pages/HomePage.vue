@@ -17,6 +17,14 @@
                             <span class="px-2">المستخدمين</span>
                         </router-link>
                     </div>
+
+                    <div class="col-12 col-md-6 text-center" v-if="authStore.can(abilities.sparePartsPermits.index) || authStore.can(abilities.sparePartsPermits.fullIndex)">
+                        <router-link to="/sparePartsPermits" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
+                            <font-awesome-icon icon="fa-solid fa-toolbox" />
+                            <span class="px-2">أذون قطع غيار</span>
+                        </router-link>
+                    </div>
+
                     <div class="col-12 col-md-6 text-center" v-if="authStore.can(abilities.imports.index) || authStore.can(abilities.imports.fullIndex)">
                         <router-link to="/imports" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
                             <font-awesome-icon icon="fa-solid fa-sack-dollar" />
@@ -27,6 +35,12 @@
                         <router-link to="/exports" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
                             <font-awesome-icon icon="fa-solid fa-hand-holding-dollar" />
                             <span class="px-2">المصروفات</span>
+                        </router-link>
+                    </div>
+                    <div class="col-12 col-md-6 text-center" v-if="authStore.can(abilities.exports.index) || authStore.can(abilities.exports.fullIndex)">
+                        <router-link to="/settings" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
+                            <font-awesome-icon icon="fa-solid fa-gear" />
+                            <span class="px-2">إعدادات الحساب</span>
                         </router-link>
                     </div>
                 </div>

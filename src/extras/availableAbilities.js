@@ -22,6 +22,14 @@ export default {
         delete: 'exports:delete',
     }, // end of exports
 
+    sparePartsPermits: {
+        index: 'sparePartsPermits:index',
+        fullIndex: 'sparePartsPermits:index:full',
+        create: 'sparePartsPermits:create',
+        update: 'sparePartsPermits:update',
+        delete: 'sparePartsPermits:delete',
+    },
+
     statistics: {
         show: 'statistics:show'
     }, // end of statistics

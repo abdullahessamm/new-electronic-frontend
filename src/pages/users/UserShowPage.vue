@@ -42,6 +42,13 @@
         @update:ability:exports:create="val => val ? addAbility(availableAbilities.exports.create) : removeAbility(availableAbilities.exports.create)"
         @update:ability:exports:delete="val => val ? addAbility(availableAbilities.exports.delete) : removeAbility(availableAbilities.exports.delete)"
         
+        @update:ability:sparePartsPermits:fullRead="val => val ? addAbility(availableAbilities.sparePartsPermits.fullIndex) : removeAbility(availableAbilities.sparePartsPermits.fullIndex)"
+        @update:ability:sparePartsPermits:read="val => val ? addAbility(availableAbilities.sparePartsPermits.index) : removeAbility(availableAbilities.sparePartsPermits.index)"
+        @update:ability:sparePartsPermits:update="val => val ? addAbility(availableAbilities.sparePartsPermits.update) : removeAbility(availableAbilities.sparePartsPermits.update)"
+        @update:ability:sparePartsPermits:create="val => val ? addAbility(availableAbilities.sparePartsPermits.create) : removeAbility(availableAbilities.sparePartsPermits.create)"
+        @update:ability:sparePartsPermits:delete="val => val ? addAbility(availableAbilities.sparePartsPermits.delete) : removeAbility(availableAbilities.sparePartsPermits.delete)"
+
+        
         @update:ability:statistics:show="val => val ? addAbility(availableAbilities.statistics.show) : removeAbility(availableAbilities.statistics.show)"
 
         :errors="formErrors"

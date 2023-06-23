@@ -265,6 +265,73 @@
                 </div>
             </div>
             <div class="col-12 my-3"></div>
+
+            <!-- Spare parts permits -->
+            <div class="col-12">
+                <h6> أذون قطع غيار: </h6>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-sparePartsPermits-read"
+                        @change="$emit('update:ability:sparePartsPermits:read', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.sparePartsPermits.index) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-sparePartsPermits-read">قراءة سجل اليوم</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-sparePartsPermits-full-read"
+                        @change="$emit('update:ability:sparePartsPermits:fullRead', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.sparePartsPermits.fullIndex) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-sparePartsPermits-full-read">قراءة السجل كامل</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-sparePartsPermits-create"
+                        @change="$emit('update:ability:sparePartsPermits:create', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.sparePartsPermits.create) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-sparePartsPermits-create">تسجيل أذونات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-sparePartsPermits-update"
+                        @change="$emit('update:ability:sparePartsPermits:update', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.sparePartsPermits.update) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-sparePartsPermits-update">تعديل أذونات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-sparePartsPermits-delete"
+                        @change="$emit('update:ability:sparePartsPermits:delete', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.sparePartsPermits.delete) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-sparePartsPermits-delete">حذف أذونات</label>
+                </div>
+            </div>
+            <div class="col-12 my-3"></div>
+
             <!-- statistics -->
             <div class="col-12">
                 <h6> صفحة الاحصائيات: </h6>
@@ -318,7 +385,13 @@ export default {
         'update:ability:exports:fullRead',
         'update:ability:exports:update',
         'update:ability:exports:create',
-        'update:ability:exports:delete',    
+        'update:ability:exports:delete',
+        // spare parts permits abilities
+        'update:ability:sparePartsPermits:read',
+        'update:ability:sparePartsPermits:fullRead',
+        'update:ability:sparePartsPermits:update',
+        'update:ability:sparePartsPermits:create',
+        'update:ability:sparePartsPermits:delete',
         // statistics abilities
         'update:ability:statistics:show',
     ]
