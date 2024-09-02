@@ -29,6 +29,11 @@
         @update:ability:users:update="val => val ? addAbility(availableAbilities.users.update) : removeAbility(availableAbilities.users.update)"
         @update:ability:users:create="val => val ? addAbility(availableAbilities.users.create) : removeAbility(availableAbilities.users.create)"
         @update:ability:users:delete="val => val ? addAbility(availableAbilities.users.delete) : removeAbility(availableAbilities.users.delete)"
+
+        @update:ability:employees:read="val => val ? addAbility(availableAbilities.employees.index) : removeAbility(availableAbilities.employees.index)"
+        @update:ability:employees:update="val => val ? addAbility(availableAbilities.employees.update) : removeAbility(availableAbilities.employees.update)"
+        @update:ability:employees:create="val => val ? addAbility(availableAbilities.employees.create) : removeAbility(availableAbilities.employees.create)"
+        @update:ability:employees:delete="val => val ? addAbility(availableAbilities.employees.delete) : removeAbility(availableAbilities.employees.delete)"
         
         @update:ability:imports:fullRead="val => val ? addAbility(availableAbilities.imports.fullIndex) : removeAbility(availableAbilities.imports.fullIndex)"
         @update:ability:imports:read="val => val ? addAbility(availableAbilities.imports.index) : removeAbility(availableAbilities.imports.index)"
@@ -47,6 +52,11 @@
         @update:ability:sparePartsPermits:update="val => val ? addAbility(availableAbilities.sparePartsPermits.update) : removeAbility(availableAbilities.sparePartsPermits.update)"
         @update:ability:sparePartsPermits:create="val => val ? addAbility(availableAbilities.sparePartsPermits.create) : removeAbility(availableAbilities.sparePartsPermits.create)"
         @update:ability:sparePartsPermits:delete="val => val ? addAbility(availableAbilities.sparePartsPermits.delete) : removeAbility(availableAbilities.sparePartsPermits.delete)"
+
+        @update:ability:monthlyReportingIncentive:read="val   => val ? addAbility(availableAbilities.monthlyReportingIncentives.index) : removeAbility(availableAbilities.monthlyReportingIncentives.index)"
+        @update:ability:monthlyReportingIncentive:update="val => val ? addAbility(availableAbilities.monthlyReportingIncentives.update) : removeAbility(availableAbilities.monthlyReportingIncentives.update)"
+        @update:ability:monthlyReportingIncentive:create="val => val ? addAbility(availableAbilities.monthlyReportingIncentives.create) : removeAbility(availableAbilities.monthlyReportingIncentives.create)"
+        @update:ability:monthlyReportingIncentive:delete="val => val ? addAbility(availableAbilities.monthlyReportingIncentives.delete) : removeAbility(availableAbilities.monthlyReportingIncentives.delete)"
 
         @update:ability:statistics:show="val => val ? addAbility(availableAbilities.statistics.show) : removeAbility(availableAbilities.statistics.show)"
 

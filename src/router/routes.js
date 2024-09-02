@@ -49,6 +49,32 @@ export default [
         name: 'exports',
         component: () => import('../pages/ExportsPage.vue')
     }, // end of exports
+    // employees
+    {
+        path: '/employees',
+        name: 'employees.index',
+        component: () => import('../pages/employees/IndexPage.vue'),
+        children: [
+            {
+                path: 'add',
+                name: 'employees.add',
+                component: () => import('../pages/employees/AddPage.vue')
+            },
+            {
+                path: ':id',
+                name: 'employees.show',
+                component: () => import('../pages/employees/EmpPage.vue')
+            },
+        ]
+    },
+    // end of employees
+    // Monthly Reporting Incentive
+    {
+        path: '/monthly-reporting-incentive',
+        name: 'monthlyReportingIncentives',
+        component: () => import('../pages/MonthlyReportingIncentivePage.vue'),
+    },
+    // End of Monthly Reporting Incentive
     // settings
     {
         path: '/settings',

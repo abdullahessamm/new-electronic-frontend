@@ -135,6 +135,59 @@
                 </div>
             </div>
             <div class="col-12 my-3"></div>
+            <!-- employees -->
+            <div class="col-12">
+                <h6> الموظفين: </h6>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-employees-read"
+                        @change="$emit('update:ability:employees:read', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.employees.index) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-employees-read">قراءة البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-employee-create"
+                        @change="$emit('update:ability:employees:create', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.employees.create) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-employee-create">إنشاء موظفين</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-employee-update"
+                        @change="$emit('update:ability:employees:update', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.employees.update) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-employee-update">تعديل البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-employee-delete"
+                        @change="$emit('update:ability:employees:delete', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.employees.delete) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-employee-delete">حذف الموظفين</label>
+                </div>
+            </div>
+            <div class="col-12 my-3"></div>
             <!-- imports -->
             <div class="col-12">
                 <h6> الإيرادات: </h6>
@@ -332,6 +385,60 @@
             </div>
             <div class="col-12 my-3"></div>
 
+            <!-- Monthly reporting incentives -->
+            <div class="col-12">
+                <h6> تقرير الحافز الشهرى: </h6>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-monthlyReportingIncentive-read"
+                        @change="$emit('update:ability:monthlyReportingIncentive:read', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.monthlyReportingIncentives.index) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-monthlyReportingIncentive-read">قراءة البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-monthlyReportingIncentive-create"
+                        @change="$emit('update:ability:monthlyReportingIncentive:create', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.monthlyReportingIncentives.create) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-monthlyReportingIncentive-create">تسجيل البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-monthlyReportingIncentive-update"
+                        @change="$emit('update:ability:monthlyReportingIncentive:update', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.monthlyReportingIncentives.update) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-monthlyReportingIncentive-update">تعديل البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <div class="form-check form-switch form-check-reverse">
+                    <input
+                        class="form-check-input cursor-hand"
+                        type="checkbox"
+                        id="ability-monthlyReportingIncentive-delete"
+                        @change="$emit('update:ability:monthlyReportingIncentive:delete', $event.target.checked)"
+                        :checked="abilities.indexOf(availableAbilities.monthlyReportingIncentives.delete) !== -1"
+                    >
+                    <label class="form-check-label cursor-hand" for="ability-monthlyReportingIncentive-delete">حذف البيانات</label>
+                </div>
+            </div>
+            <div class="col-12 my-3"></div>
+
             <!-- statistics -->
             <div class="col-12">
                 <h6> صفحة الاحصائيات: </h6>
@@ -374,6 +481,11 @@ export default {
         'update:ability:users:update',
         'update:ability:users:create',
         'update:ability:users:delete',
+        // employees abilities
+        'update:ability:employees:read',
+        'update:ability:employees:update',
+        'update:ability:employees:create',
+        'update:ability:employees:delete',
         // imports abilities
         'update:ability:imports:read',
         'update:ability:imports:fullRead',
@@ -392,6 +504,11 @@ export default {
         'update:ability:sparePartsPermits:update',
         'update:ability:sparePartsPermits:create',
         'update:ability:sparePartsPermits:delete',
+        // monthly reporting incentive
+        'update:ability:monthlyReportingIncentive:read',
+        'update:ability:monthlyReportingIncentive:update',
+        'update:ability:monthlyReportingIncentive:create',
+        'update:ability:monthlyReportingIncentive:delete',
         // statistics abilities
         'update:ability:statistics:show',
     ]

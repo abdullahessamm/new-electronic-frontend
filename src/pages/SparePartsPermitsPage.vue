@@ -82,7 +82,7 @@
                                     </td>
 
                                     <td colspan="2" class="px-3 py-4">
-                                        <button class="btn btn-primary" @click="createSparePartsPermit" :disabled="addForm.permit_number || ! addForm.case_number || ! addForm.client_name || ! addForm.description || addForm.saving">
+                                        <button class="btn btn-primary" @click="createSparePartsPermit" :disabled="! addForm.permit_number || ! addForm.case_number || ! addForm.client_name || ! addForm.description || addForm.saving">
                                             <loading-component v-if="addForm.saving" width="20px"></loading-component>
                                             <span v-else>
                                                 <font-awesome-icon icon="fa-solid fa-plus" />

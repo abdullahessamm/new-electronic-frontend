@@ -30,6 +30,22 @@ export default {
         delete: 'sparePartsPermits:delete',
     },
 
+    // employees
+    employees: {
+        index: 'employees:index',
+        create: 'employees:create',
+        update: 'employees:update',
+        delete: 'employees:delete',
+    },
+
+    // monthly reporting incentives
+    monthlyReportingIncentives: {
+        index: 'MonthlyReportingIncentives:index',
+        create: 'MonthlyReportingIncentives:create',
+        update: 'MonthlyReportingIncentives:update',
+        delete: 'MonthlyReportingIncentives:delete',
+    },
+
     statistics: {
         show: 'statistics:show'
     }, // end of statistics

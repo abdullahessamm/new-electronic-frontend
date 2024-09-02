@@ -37,10 +37,12 @@
                             <span class="px-2">المصروفات</span>
                         </router-link>
                     </div>
-                    <div class="col-12 col-md-6 text-center" v-if="authStore.can(abilities.exports.index) || authStore.can(abilities.exports.fullIndex)">
-                        <router-link to="/settings" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
-                            <font-awesome-icon icon="fa-solid fa-gear" />
-                            <span class="px-2">إعدادات الحساب</span>
+                    <div class="col-12 col-md-6 text-center" v-if="authStore.can(abilities.employees.index)">
+                        <router-link :to="{
+                            name: 'employees.index'
+                        }" class="hot-link text-decoration-none px-4 py-2 w-100 d-inline-block color-main">
+                            <font-awesome-icon icon="fa-solid fa-user-tie" />
+                            <span class="px-2">الموظفين</span>
                         </router-link>
                     </div>
                 </div>
