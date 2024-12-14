@@ -56,11 +56,11 @@
                                         </div>
                                         <div>
                                             <b>مجموع الخصومات</b>
-                                            <span>: {{ fee.discounts.reduce((total, discount) => total += discount.amount, 0) }}ج</span>
+                                            <span>: {{ fee.discounts?.reduce((total, discount) => total += discount.amount, 0) }}ج</span>
                                         </div>
                                         <div>
                                             <b>الباقى بعد الخصم</b>
-                                            <span>: {{ emp?.salary - fee.discounts.reduce((total, discount) => total += discount.amount, 0) }}ج</span>
+                                            <span>: {{ emp?.salary - fee.discounts?.reduce((total, discount) => total += discount.amount, 0) }}ج</span>
                                         </div>
                                     </div>
                                     <div class="info mb-4 pb-2 text-left" v-if="authStore.$state.user.abilities.indexOf('*') > -1">

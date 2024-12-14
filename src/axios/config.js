@@ -1,4 +1,4 @@
 export default {
-    baseURL: 'https://new-electronic.net/api'
-    // baseURL: 'http://localhost/api'
+  baseURL: 'https://www.new-electronic.online/api'
+  // baseURL: 'http://localhost/api'
 }

@@ -38,7 +38,7 @@ export const useImportsStore = defineStore('imports', {
             Object.keys(groupedImports).forEach(key => {
                 const monthImports = groupedImports[key]
                 let sum = 0
-                monthImports.forEach(i => sum += i.cost)
+                monthImports.forEach(i => sum += parseFloat(i.cost))
                 groupedImports[key] = sum
             })
             
